@@ -1,0 +1,10 @@
+update_meter:
+  fields:
+    entryName:
+      example: my_buffer
+    importedTotal:
+      example: 1424.7526
+    exportedTotal:
+      example: 8935.8628
+    meteredAt:
+      example: "2024-01-02 15:19:24"

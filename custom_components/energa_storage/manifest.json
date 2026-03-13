@@ -1,0 +1,13 @@
+{
+  "domain": "energa_storage",
+  "name": "Energa Storage",
+  "version": "0.4.0",
+  "codeowners": [
+    "@catgiggle"
+  ],
+  "iot_class": "local_push",
+  "config_flow": true,
+  "documentation": "https://github.com/catgiggle/energa_storage",
+  "issue_tracker": "https://github.com/catgiggle/energa_storage/issues",
+  "requirements": []
+}

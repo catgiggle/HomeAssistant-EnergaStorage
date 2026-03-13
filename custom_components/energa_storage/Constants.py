@@ -1,0 +1,12 @@
+AUTHOR = 'Damian Wójcik (catgiggle)'
+CONFIG_LABEL = 'label'
+CONFIG_NAME = 'name'
+COORDINATOR = 'coordinator'
+DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S'
+DEVICE_INFO = 'device_info'
+DOMAIN = 'energa_storage'
+ENTRY_LIST = 'entry_list'
+NAME = 'Energa Storage'
+PLATFORMS = ['sensor']
+STORAGE_PATH = 'storage_path'
+VERSION = '0.4.2'
