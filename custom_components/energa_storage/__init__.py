@@ -72,6 +72,7 @@ def _buildDeviceForEntry(entry, name, label):
         name=label,
         model=f"{NAME} ({name})",
         manufacturer=AUTHOR,
+        sw_version=VERSION,
     )
 
 

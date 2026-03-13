@@ -1,6 +1,7 @@
 {
   "domain": "energa_storage",
   "name": "Energa Storage",
+  "version": "0.6.1",
   "codeowners": [
     "@catgiggle"
   ],
