@@ -11,4 +11,4 @@ METER_UNSUBSCRIBER = 'meter_unsubscriber'
 NAME = 'Energa Storage'
 PLATFORMS = ['sensor']
 STORAGE_PATH = 'storage_path'
-VERSION = '0.7.1'
+VERSION = '0.7.2'

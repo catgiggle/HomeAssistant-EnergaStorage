@@ -65,4 +65,3 @@ utility_meter:
 ```
 
 This allows you to monitor how much energy is added to or lost from the buffer each day.
-...
