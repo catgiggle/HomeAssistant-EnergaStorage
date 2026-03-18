@@ -1,0 +1,21 @@
+{
+  "config": {
+    "error": {
+      "invalid_label": "Must contain at least one letter.",
+      "invalid_name": "Only lowercase letters, numbers, and underscores are allowed.",
+      "entity_not_found": "The selected entity must be a valid sensor"
+    },
+    "step": {
+      "user": {
+        "title": "Energa Storage",
+        "description": "Configure name and sensors used to track exported and imported energy.",
+        "data": {
+          "label": "Display name",
+          "name": "Internal name and entity prefix",
+          "sensor_exported": "Exported energy sensor",
+          "sensor_imported": "Imported energy sensor"
+        }
+      }
+    }
+  }
+}

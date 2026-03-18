@@ -1,0 +1,21 @@
+{
+  "config": {
+    "error": {
+      "invalid_label": "Musi zawierać co najmniej jedną literę.",
+      "invalid_name": "Dozwolone są tylko małe litery, cyfry i podkreślenia.",
+      "entity_not_found": "Wybrana encja musi być prawidłowym sensorem."
+    },
+    "step": {
+      "user": {
+        "title": "Energa Storage",
+        "description": "Skonfiguruj nazwę oraz sensory używane do śledzenia energii oddanej i pobranej.",
+        "data": {
+          "label": "Nazwa wyświetlana",
+          "name": "Nazwa wewnętrzna i prefiks encji",
+          "sensor_exported": "Sensor energii oddanej",
+          "sensor_imported": "Sensor energii pobranej"
+        }
+      }
+    }
+  }
+}
