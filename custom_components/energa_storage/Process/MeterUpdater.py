@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from homeassistant.helpers.template import is_number
+
 from ..Constants import *
 from ..Utils.Database import Database
 
@@ -17,7 +19,7 @@ class MeterUpdater:
         exportSensor = self._hass.states.get(self._exportSensor)
         exportedTotal = exportSensor.state if exportSensor else None
 
-        if importedTotal and exportedTotal:
+        if is_number(importedTotal) and is_number(exportedTotal):
             self._storeValues(importedTotal, exportedTotal)
 
     def _storeValues(self, importedTotal, exportedTotal):
