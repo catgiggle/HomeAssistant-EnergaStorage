@@ -12,11 +12,13 @@ class MeterUpdater:
         self._storagePath = storagePath
 
     def update(self):
-        try:
-            importedTotal = self._hass.states.get(self._importSensor).state
-            exportedTotal = self._hass.states.get(self._exportSensor).state
+        importedSensor = self._hass.states.get(self._importSensor)
+        exportedSensor = self._hass.states.get(self._exportSensor)
 
-            self._storeValues(float(importedTotal), float(exportedTotal))
+        if not importedSensor or not exportedSensor:
+            return
+        try:
+            self._storeValues(float(importedSensor.state), float(exportedSensor.state))
         except (TypeError, ValueError):
             return
 
