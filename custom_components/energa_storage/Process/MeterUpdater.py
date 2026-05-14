@@ -1,9 +1,10 @@
+import logging
 from datetime import datetime
-
-from homeassistant.helpers.template import is_number
 
 from ..Constants import *
 from ..Utils.Database import Database
+
+_LOGGER = logging.getLogger(__name__)
 
 
 class MeterUpdater:
@@ -14,19 +15,20 @@ class MeterUpdater:
         self._storagePath = storagePath
 
     def update(self):
-        importSensor = self._hass.states.get(self._importSensor)
-        importedTotal = importSensor.state if importSensor else None
-        exportSensor = self._hass.states.get(self._exportSensor)
-        exportedTotal = exportSensor.state if exportSensor else None
+        try:
+            importedTotal = self._hass.states.get(self._importSensor).state
+            exportedTotal = self._hass.states.get(self._exportSensor).state
 
-        if is_number(importedTotal) and is_number(exportedTotal):
-            self._storeValues(importedTotal, exportedTotal)
+            self._storeValues(float(importedTotal), float(exportedTotal))
+        except (TypeError, ValueError):
+            return
 
     def _storeValues(self, importedTotal, exportedTotal):
         now = datetime.now().strftime(DATETIME_FORMAT)
 
         with Database.connect(self._storagePath) as connection:
             connection.execute('''
-                INSERT INTO energa_meter (meteredAt, importedTotal, exportedTotal, isProcessed, createdAt, modifiedAt)
-                VALUES (?, ?, ?, 0, ?, ?)
-            ''', (now, importedTotal, exportedTotal, now, now))
+                               INSERT INTO energa_meter (meteredAt, importedTotal, exportedTotal, isProcessed,
+                                                         createdAt, modifiedAt)
+                               VALUES (?, ?, ?, 0, ?, ?)
+                               ''', (now, importedTotal, exportedTotal, now, now))
