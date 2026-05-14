@@ -1,10 +1,7 @@
-import logging
 from datetime import datetime
 
 from ..Constants import *
 from ..Utils.Database import Database
-
-_LOGGER = logging.getLogger(__name__)
 
 
 class MeterUpdater:
@@ -28,7 +25,6 @@ class MeterUpdater:
 
         with Database.connect(self._storagePath) as connection:
             connection.execute('''
-                               INSERT INTO energa_meter (meteredAt, importedTotal, exportedTotal, isProcessed,
-                                                         createdAt, modifiedAt)
-                               VALUES (?, ?, ?, 0, ?, ?)
-                               ''', (now, importedTotal, exportedTotal, now, now))
+            INSERT INTO energa_meter (meteredAt, importedTotal, exportedTotal, isProcessed, createdAt, modifiedAt)
+            VALUES (?, ?, ?, 0, ?, ?)
+            ''', (now, importedTotal, exportedTotal, now, now))
